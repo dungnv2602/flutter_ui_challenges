@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'egg_timer.dart';
@@ -15,8 +9,7 @@ class TimeControls extends StatefulWidget {
   _TimeControlsState createState() => _TimeControlsState();
 }
 
-class _TimeControlsState extends State<TimeControls>
-    with TickerProviderStateMixin {
+class _TimeControlsState extends State<TimeControls> with TickerProviderStateMixin {
   AnimationController pauseResumeSlideController;
   AnimationController restartResetFadeController;
 
@@ -74,15 +67,9 @@ class _TimeControlsState extends State<TimeControls>
                 0,
               ),
               child: TimeButton(
-                icon: timer.state == CountdownTimerState.running
-                    ? Icons.pause
-                    : Icons.play_arrow,
-                text: timer.state == CountdownTimerState.running
-                    ? 'PAUSE'
-                    : 'RESUME',
-                onPressed: timer.state == CountdownTimerState.running
-                    ? timer.pause
-                    : timer.resume,
+                icon: timer.state == CountdownTimerState.running ? Icons.pause : Icons.play_arrow,
+                text: timer.state == CountdownTimerState.running ? 'PAUSE' : 'RESUME',
+                onPressed: timer.state == CountdownTimerState.running ? timer.pause : timer.resume,
               ),
             ),
           ],
@@ -94,13 +81,11 @@ class _TimeControlsState extends State<TimeControls>
   @override
   void initState() {
     super.initState();
-    pauseResumeSlideController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 300))
+    pauseResumeSlideController = AnimationController(vsync: this, duration: const Duration(milliseconds: 300))
       ..addListener(() {
         setState(() {});
       });
-    restartResetFadeController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 300))
+    restartResetFadeController = AnimationController(vsync: this, duration: const Duration(milliseconds: 300))
       ..addListener(() {
         setState(() {});
       });

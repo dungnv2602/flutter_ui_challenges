@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 /// design: https://dribbble.com/shots/3845034-Listening-now-Kishi-Bashi
 /// Implementation originated by Matt Carroll/Fluttery
 /// With my own workarounds and improvements
@@ -33,7 +27,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
 
 class HomePage extends StatefulWidget {
   @override
@@ -129,8 +122,7 @@ class SpringySlider extends StatefulWidget {
   _SpringySliderState createState() => _SpringySliderState();
 }
 
-class _SpringySliderState extends State<SpringySlider>
-    with TickerProviderStateMixin {
+class _SpringySliderState extends State<SpringySlider> with TickerProviderStateMixin {
   SpringySliderController sliderController;
 
   void initSpringySliderController() {

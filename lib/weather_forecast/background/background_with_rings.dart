@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
@@ -87,8 +81,7 @@ class _CircleClipper extends CustomClipper<Rect> {
   }
 
   @override
-  bool shouldReclip(_CircleClipper oldClipper) =>
-      offset != oldClipper.offset || radius != oldClipper.radius;
+  bool shouldReclip(_CircleClipper oldClipper) => offset != oldClipper.offset || radius != oldClipper.radius;
 }
 
 /// Should rewatch the tutorial if still confuse what this is about.
@@ -171,13 +164,9 @@ class _WhiteCircleCutOutPainter extends CustomPainter {
 
   @override
   bool shouldRebuildSemantics(_WhiteCircleCutOutPainter oldDelegate) =>
-      baseColor != oldDelegate.baseColor ||
-      circles != oldDelegate.circles ||
-      offset != oldDelegate.offset;
+      baseColor != oldDelegate.baseColor || circles != oldDelegate.circles || offset != oldDelegate.offset;
 
   @override
   bool shouldRepaint(_WhiteCircleCutOutPainter oldDelegate) =>
-      baseColor != oldDelegate.baseColor ||
-      circles != oldDelegate.circles ||
-      offset != oldDelegate.offset;
+      baseColor != oldDelegate.baseColor || circles != oldDelegate.circles || offset != oldDelegate.offset;
 }

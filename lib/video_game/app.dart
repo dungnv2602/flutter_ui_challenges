@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
 /// Implementation originated by: https://github.com/TechieBlossom/video_game_messaging_app
 /// With my own workarounds and improvements
 /// design: https://dribbble.com/shots/6193167-Video-Game-Message-Board-App
@@ -18,7 +13,6 @@ import 'menu_texts.dart';
 import 'models/models.dart';
 import 'util/utils.dart';
 // TODO fix transition back
-
 
 class MyApp extends StatelessWidget {
   @override

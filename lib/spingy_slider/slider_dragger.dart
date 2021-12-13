@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 import 'springy_slider_controller.dart';
 
@@ -39,8 +33,7 @@ class _SliderDraggerState extends State<SliderDragger> {
     final RenderBox renderBox = context.findRenderObject();
     final sliderWidth = context.size.width;
     final sliderLeftPosition = renderBox.localToGlobal(Offset.zero).dx;
-    final dragHorizontalPercent =
-        (details.globalPosition.dx - sliderLeftPosition) / sliderWidth;
+    final dragHorizontalPercent = (details.globalPosition.dx - sliderLeftPosition) / sliderWidth;
 
     widget.sliderController.onDragStart(dragHorizontalPercent);
   }
@@ -48,19 +41,16 @@ class _SliderDraggerState extends State<SliderDragger> {
   void _onPanUpdate(DragUpdateDetails details) {
     /// calculate draggingVerticalPercent
     final dragDistance = startDragY - details.globalPosition.dy;
-    final sliderHeight =
-        context.size.height - widget.paddingTop - widget.paddingBottom;
+    final sliderHeight = context.size.height - widget.paddingTop - widget.paddingBottom;
     final dragPercent = dragDistance / sliderHeight;
 
-    widget.sliderController.draggingVerticalPercent =
-        startDragPercent + dragPercent;
+    widget.sliderController.draggingVerticalPercent = startDragPercent + dragPercent;
 
     /// calculate draggingHorizontalPercent
     final RenderBox renderBox = context.findRenderObject();
     final sliderWidth = context.size.width;
     final sliderLeftPosition = renderBox.localToGlobal(Offset.zero).dx;
-    final dragHorizontalPercent =
-        (details.globalPosition.dx - sliderLeftPosition) / sliderWidth;
+    final dragHorizontalPercent = (details.globalPosition.dx - sliderLeftPosition) / sliderWidth;
 
     widget.sliderController.draggingHorizontalPercent = dragHorizontalPercent;
   }

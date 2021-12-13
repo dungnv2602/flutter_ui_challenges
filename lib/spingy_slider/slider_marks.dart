@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -86,8 +80,7 @@ class _SliderMarksPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     /// draw the background
-    canvas.drawRect(
-        Rect.fromLTWH(0, 0, size.width, size.height), backgroundPaint);
+    canvas.drawRect(Rect.fromLTWH(0, 0, size.width, size.height), backgroundPaint);
 
     /// draw the marks
     final paintHeight = size.height - paddingTop - paddingBottom;

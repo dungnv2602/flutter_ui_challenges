@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -17,22 +11,19 @@ class TimeDisplay extends StatefulWidget {
   _TimeDisplayState createState() => _TimeDisplayState();
 }
 
-class _TimeDisplayState extends State<TimeDisplay>
-    with SingleTickerProviderStateMixin {
+class _TimeDisplayState extends State<TimeDisplay> with SingleTickerProviderStateMixin {
   final DateFormat _selectionTimeFormat = DateFormat('mm');
   final DateFormat _countdownTimeFormat = DateFormat('mm:ss');
 
   AnimationController _animationController;
 
   String _formattedSelectionTime(CountdownTimer timer) {
-    final dateTime = DateTime(
-        DateTime.now().year, 0, 0, 0, 0, timer.lastStartTime.inSeconds);
+    final dateTime = DateTime(DateTime.now().year, 0, 0, 0, 0, timer.lastStartTime.inSeconds);
     return _selectionTimeFormat.format(dateTime);
   }
 
   String _formattedCountdownTime(CountdownTimer timer) {
-    final dateTime = DateTime(
-        DateTime.now().year, 0, 0, 0, 0, timer.currentTime.inSeconds);
+    final dateTime = DateTime(DateTime.now().year, 0, 0, 0, 0, timer.currentTime.inSeconds);
     return _countdownTimeFormat.format(dateTime);
   }
 

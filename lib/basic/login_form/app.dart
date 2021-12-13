@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
 /// design: https://www.uplabs.com/posts/login-99a29cbb-2952-4550-a977-5081bada091d
 
 import 'package:flutter/material.dart';

@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 
 import '../../utils/utils.dart';
@@ -37,8 +31,7 @@ class SlidingRadialList extends StatelessWidget {
     return listItems;
   }
 
-  Widget _radialListItem(RadialListItemViewModel viewModel,
-      BoxConstraints constraints, double angle, double opacity) {
+  Widget _radialListItem(RadialListItemViewModel viewModel, BoxConstraints constraints, double angle, double opacity) {
     return Positioned(
       left: centerPoint,
       top: constraints.maxHeight / 2,
@@ -96,8 +89,7 @@ class _RadialListItem extends StatelessWidget {
             ),
           );
 
-    final circleColor =
-        listItemViewModel.isSelected ? const Color(0xFF6688CC) : Colors.white;
+    final circleColor = listItemViewModel.isSelected ? const Color(0xFF6688CC) : Colors.white;
 
     return Transform(
       transform: Matrix4.translationValues(-30, -30, 0),

@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -30,8 +24,7 @@ class DialTurnGestureDetector extends StatefulWidget {
         super(key: key);
 
   @override
-  _DialTurnGestureDetectorState createState() =>
-      _DialTurnGestureDetectorState();
+  _DialTurnGestureDetectorState createState() => _DialTurnGestureDetectorState();
 }
 
 class _DialTurnGestureDetectorState extends State<DialTurnGestureDetector> {
@@ -48,10 +41,8 @@ class _DialTurnGestureDetectorState extends State<DialTurnGestureDetector> {
     if (startDragCoord != null) {
       final angleDiff = coord.angle - startDragCoord.angle;
       final angleDiffInPercents = _positiveAngleDiff(angleDiff) / (pi * 2);
-      final timeDiffInSeconds =
-          (angleDiffInPercents * widget.maxTime.inSeconds).round();
-      selectedTime =
-          Duration(seconds: startDragTime.inSeconds + timeDiffInSeconds);
+      final timeDiffInSeconds = (angleDiffInPercents * widget.maxTime.inSeconds).round();
+      selectedTime = Duration(seconds: startDragTime.inSeconds + timeDiffInSeconds);
       widget.onTimeSelected(selectedTime);
     }
   }

@@ -1,19 +1,13 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 
 import '../utils/utils.dart';
+
 /// Implementation originated by: https://github.com/devefy/Flutter-Story-App-UI
 /// With my own workarounds and improvements
 /// Design: https://dribbble.com/shots/3844950-Story-App-Concept
 
 class HomePage extends StatelessWidget {
-  final pageController = PageController(
-      initialPage: images.length - 1); // from the bottom is a must
+  final pageController = PageController(initialPage: images.length - 1); // from the bottom is a must
 
   @override
   Widget build(BuildContext context) {
@@ -106,9 +100,7 @@ class CardDetails extends StatelessWidget {
   final String imageAssetPath;
   final String title;
 
-  const CardDetails(
-      {Key key, @required this.imageAssetPath, @required this.title})
-      : super(key: key);
+  const CardDetails({Key key, @required this.imageAssetPath, @required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -123,14 +115,10 @@ class CardDetails extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: Text(
                   title,
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 25.0,
-                      fontFamily: 'SF-Pro-Text-Regular'),
+                  style: const TextStyle(color: Colors.white, fontSize: 25.0, fontFamily: 'SF-Pro-Text-Regular'),
                 ),
               ),
               Padding(
@@ -155,11 +143,7 @@ class CustomSection extends StatelessWidget {
   final CustomChip customChip;
   final String storiesNo;
 
-  const CustomSection(
-      {Key key,
-      @required this.title,
-      @required this.customChip,
-      @required this.storiesNo})
+  const CustomSection({Key key, @required this.title, @required this.customChip, @required this.storiesNo})
       : super(key: key);
 
   @override
@@ -199,9 +183,7 @@ class CustomIconButton extends StatelessWidget {
   final double size;
   final VoidCallback onPress;
 
-  const CustomIconButton(
-      {Key key, @required this.icon, @required this.size, this.onPress})
-      : super(key: key);
+  const CustomIconButton({Key key, @required this.icon, @required this.size, this.onPress}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -220,8 +202,7 @@ class CustomChip extends StatelessWidget {
   final Color color;
   final String title;
 
-  const CustomChip({Key key, @required this.color, @required this.title})
-      : super(key: key);
+  const CustomChip({Key key, @required this.color, @required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

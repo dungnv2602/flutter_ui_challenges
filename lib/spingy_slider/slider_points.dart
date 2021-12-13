@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 import 'springy_slider_controller.dart';
 
@@ -32,8 +26,7 @@ class SliderPoints extends StatelessWidget {
       builder: (_, constraints) {
         double sliderPercent = sliderController.sliderValue;
         if (sliderController.state == SpringySliderState.dragging) {
-          sliderPercent =
-              sliderController.draggingVerticalPercent.clamp(0.0, 1.0);
+          sliderPercent = sliderController.draggingVerticalPercent.clamp(0.0, 1.0);
         }
 
         final height = constraints.maxHeight - paddingTop - paddingBottom;
@@ -97,14 +90,13 @@ class Points extends StatelessWidget {
     this.isPointsYouNeed = true,
     this.color,
   })  : assert(points != null),
-  assert(pointsInPercent != null),
+        assert(pointsInPercent != null),
         super(key: key);
   @override
   Widget build(BuildContext context) {
     final pointTextSize = 50 + (50 * pointsInPercent);
     return Row(
-      crossAxisAlignment:
-          isAboveSlider ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+      crossAxisAlignment: isAboveSlider ? CrossAxisAlignment.end : CrossAxisAlignment.start,
       children: <Widget>[
         FractionalTranslation(
           // font sensitive

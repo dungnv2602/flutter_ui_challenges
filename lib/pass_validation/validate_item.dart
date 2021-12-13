@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,9 +9,7 @@ class ValidateItemConsumer extends StatelessWidget {
   final String title;
   final TextChanged onValueChanged;
 
-  const ValidateItemConsumer(
-      {Key key, @required this.title, @required this.onValueChanged})
-      : super(key: key);
+  const ValidateItemConsumer({Key key, @required this.title, @required this.onValueChanged}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,15 +26,13 @@ class ValidateItem extends StatefulWidget {
   final String title;
   final bool valid;
 
-  const ValidateItem({Key key, @required this.title, @required this.valid})
-      : super(key: key);
+  const ValidateItem({Key key, @required this.title, @required this.valid}) : super(key: key);
 
   @override
   _ValidateItemState createState() => _ValidateItemState();
 }
 
-class _ValidateItemState extends State<ValidateItem>
-    with TickerProviderStateMixin<ValidateItem> {
+class _ValidateItemState extends State<ValidateItem> with TickerProviderStateMixin<ValidateItem> {
   AnimationController _controller;
   AnimationController _strikeController;
   Animation<double> _spaceWidth;
@@ -59,23 +49,18 @@ class _ValidateItemState extends State<ValidateItem>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 150));
+    _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 150));
 
-    _strikeController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 150));
+    _strikeController = AnimationController(vsync: this, duration: const Duration(milliseconds: 150));
 
-    _spaceWidth = Tween<double>(begin: 8, end: 12)
-        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
+    _spaceWidth = Tween<double>(begin: 8, end: 12).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
 
-    _strikePercent = Tween<double>(begin: 0, end: 1).animate(
-        CurvedAnimation(parent: _strikeController, curve: Curves.easeOut));
+    _strikePercent =
+        Tween<double>(begin: 0, end: 1).animate(CurvedAnimation(parent: _strikeController, curve: Curves.easeOut));
   }
 
   _playAnimation(bool strikeIn) async {
-    strikeIn
-        ? await _strikeController.forward()
-        : await _strikeController.reverse();
+    strikeIn ? await _strikeController.forward() : await _strikeController.reverse();
     await _controller.forward();
     await _controller.reverse();
   }
@@ -85,9 +70,7 @@ class _ValidateItemState extends State<ValidateItem>
     return Row(
       children: <Widget>[
         const SizedBox(width: 32),
-        AnimatedBuilder(
-            animation: _spaceWidth,
-            builder: (_, __) => SizedBox(width: _spaceWidth.value)),
+        AnimatedBuilder(animation: _spaceWidth, builder: (_, __) => SizedBox(width: _spaceWidth.value)),
         Padding(
           padding: const EdgeInsets.all(8),
           child: AnimatedBuilder(
@@ -119,9 +102,7 @@ class StrikeThroughPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    canvas.drawRect(
-        Rect.fromLTWH(0, (size.height / 2) - 2, size.width * percent, 4),
-        Paint()..color = Colors.green);
+    canvas.drawRect(Rect.fromLTWH(0, (size.height / 2) - 2, size.width * percent, 4), Paint()..color = Colors.green);
   }
 
   @override

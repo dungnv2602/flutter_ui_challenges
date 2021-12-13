@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -180,7 +174,7 @@ class CardSubInfo extends StatelessWidget {
                   Text(card.owner, textAlign: TextAlign.left, style: subInfoTextStyle),
                 ],
               ),
-             const  Spacer(),
+              const Spacer(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[

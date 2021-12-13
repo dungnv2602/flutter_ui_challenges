@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 
 import 'member_widget.dart';
@@ -20,7 +14,7 @@ class _TeamMembersPageState extends State<TeamMembersPage> with SingleTickerProv
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(vsync: this, duration:const  Duration(milliseconds: 1000));
+    controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 1000));
     controller.forward();
   }
 
@@ -40,12 +34,12 @@ class _TeamMembersPageState extends State<TeamMembersPage> with SingleTickerProv
         child: SizedBox(
           width: width * 0.8,
           child: SlideTransition(
-            position: Tween<Offset>(begin:const  Offset(0, 1),  end:const  Offset(0, 0))
+            position: Tween<Offset>(begin: const Offset(0, 1), end: const Offset(0, 0))
                 .animate(CurvedAnimation(parent: controller, curve: Curves.fastOutSlowIn)),
             child: FadeTransition(
               opacity: controller,
               child: ListView.builder(
-                physics:const  BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 itemCount: members.length,
                 itemBuilder: (context, index) {
                   return MemberWidget(

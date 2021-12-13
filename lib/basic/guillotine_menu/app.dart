@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
 /// Implementation originated by: https://github.com/boeledi/guillotine
 /// With my own workarounds and improvements
 /// Source: https://dribbble.com/shots/2018249-Guillotine-Menu?list=users&offset=11

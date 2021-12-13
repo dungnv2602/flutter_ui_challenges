@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../utils/utils.dart';
@@ -86,7 +80,7 @@ class _FlightCard extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                   color: colorTween,
-                  offset:const  Offset(4, 16),
+                  offset: const Offset(4, 16),
                   blurRadius: 16,
                   spreadRadius: 2,
                 ),
@@ -110,7 +104,7 @@ class _FlightCard extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         Text('non-stop', style: smallGrey),
-                    const     Spacer(),
+                        const Spacer(),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: <Widget>[

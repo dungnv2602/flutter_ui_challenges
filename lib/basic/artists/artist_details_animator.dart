@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 
 import 'artist_details.dart';
@@ -56,7 +50,7 @@ class _ArtistDetailsAnimatorState extends State<ArtistDetailsAnimator> with Sing
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this, duration:const  Duration(milliseconds: 2200));
+    _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 2200));
     _controller.addStatusListener((status) {
       if (status == AnimationStatus.dismissed) {
         _controller.forward();

@@ -1,14 +1,9 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 
 import '../egg_timer.dart';
+
 const eggTimerGradientColors = [Color(0xFFF5F5F5), Color(0xFFE8E8E8)];
 
 class EggTimerKnob extends StatefulWidget {
@@ -24,35 +19,30 @@ class EggTimerKnob extends StatefulWidget {
   _EggTimerKnobState createState() => _EggTimerKnobState();
 }
 
-class _EggTimerKnobState extends State<EggTimerKnob>
-    with SingleTickerProviderStateMixin {
+class _EggTimerKnobState extends State<EggTimerKnob> with SingleTickerProviderStateMixin {
   AnimationController animationController;
   Animation<double> snapAnimation;
 
   CountdownTimerState prevEggTimerState;
   double prevRotationPercent = 0;
 
-  double _currentRotationPercent() =>
-      widget.timer.currentTime.inSeconds / widget.timer.maxTime.inSeconds;
+  double _currentRotationPercent() => widget.timer.currentTime.inSeconds / widget.timer.maxTime.inSeconds;
 
   void _triggerAnimation() {
     /// only applies in reset state
-    if (widget.timer.currentTime.inSeconds == 0 &&
-        prevEggTimerState != CountdownTimerState.ready) {
-      snapAnimation = Tween<double>(begin: prevRotationPercent, end: 0)
-          .animate(animationController)
-            ..addListener(() {
-              setState(() {});
-            })
-            ..addStatusListener((status) {
-              if (status == AnimationStatus.completed) {
-                setState(() {
-                  snapAnimation = null;
-                });
-              }
+    if (widget.timer.currentTime.inSeconds == 0 && prevEggTimerState != CountdownTimerState.ready) {
+      snapAnimation = Tween<double>(begin: prevRotationPercent, end: 0).animate(animationController)
+        ..addListener(() {
+          setState(() {});
+        })
+        ..addStatusListener((status) {
+          if (status == AnimationStatus.completed) {
+            setState(() {
+              snapAnimation = null;
             });
-      animationController.duration =
-          Duration(milliseconds: (prevRotationPercent / 4 * 1000).round());
+          }
+        });
+      animationController.duration = Duration(milliseconds: (prevRotationPercent / 4 * 1000).round());
       animationController.forward(from: 0);
     }
 
@@ -61,9 +51,7 @@ class _EggTimerKnobState extends State<EggTimerKnob>
   }
 
   double _rotationPercent() {
-    return snapAnimation == null
-        ? _currentRotationPercent()
-        : snapAnimation.value;
+    return snapAnimation == null ? _currentRotationPercent() : snapAnimation.value;
   }
 
   @override
@@ -112,7 +100,7 @@ class _EggTimerKnobState extends State<EggTimerKnob>
                 // make sure rotation around the center
                 alignment: Alignment.center,
                 // rotate Z axis by the amount of rotationPercent * 360 degrees
-                transform: Matrix4.rotationZ(2*pi * _rotationPercent()),
+                transform: Matrix4.rotationZ(2 * pi * _rotationPercent()),
                 child: FlutterLogo(
                   colors: Colors.blueGrey,
                   size: 40,

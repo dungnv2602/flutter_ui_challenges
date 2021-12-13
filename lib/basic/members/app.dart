@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
 /// Implementation originated by: https://github.com/TechieBlossom/palette_generator_demo
 /// With my own workarounds and improvements
 /// Source: https://dribbble.com/shots/5788331-Our-Team-Mobile-Version
@@ -11,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'team_members_page.dart';
-
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.

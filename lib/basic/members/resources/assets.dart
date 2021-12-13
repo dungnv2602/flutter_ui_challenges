@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 class Assets {
   static const String AMANDA_MINICUCCI = 'assets/images/basic.members/amanda_minicucci.jpg';
   static const String GENA_SEDWICK = 'assets/images/basic.members/gena_sedgwick.jpg';

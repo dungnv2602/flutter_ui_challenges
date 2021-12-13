@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 part of radial_menu;
 
 class RadialMenu extends StatefulWidget {
@@ -50,8 +44,7 @@ class RadialMenu extends StatefulWidget {
   _RadialMenuState createState() => _RadialMenuState();
 }
 
-class _RadialMenuState extends State<RadialMenu>
-    with SingleTickerProviderStateMixin {
+class _RadialMenuState extends State<RadialMenu> with SingleTickerProviderStateMixin {
   RadialMenuController _menuController;
 
   @override
@@ -109,18 +102,15 @@ class _RadialMenuState extends State<RadialMenu>
       // if no open time
       if (widget.openTimeMillis == 0) {
         // display menu rightaway
-        _menuController =
-            RadialMenuController(vsync: this, state: RadialMenuState.open);
+        _menuController = RadialMenuController(vsync: this, state: RadialMenuState.open);
       } else {
         // animate opening menu at a given time
-        _menuController =
-            RadialMenuController(vsync: this, state: RadialMenuState.closed);
+        _menuController = RadialMenuController(vsync: this, state: RadialMenuState.closed);
         _menuController.open(widget.openTimeMillis);
       }
     } else {
       // animate opening menu at a given time after delay
-      _menuController =
-          RadialMenuController(vsync: this, state: RadialMenuState.closed);
+      _menuController = RadialMenuController(vsync: this, state: RadialMenuState.closed);
       // trigger open func after delayAfterMillis
       Timer(Duration(milliseconds: widget.delayAfterMillis), () {
         _menuController.open(widget.openTimeMillis);

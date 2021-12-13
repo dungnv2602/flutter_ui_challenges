@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 
 import 'background/background_with_rings.dart';
@@ -64,8 +58,6 @@ class Forecast extends StatelessWidget {
   }
 }
 
-
-
 class _RadialListItem extends StatelessWidget {
   const _RadialListItem({Key key, @required this.listItemViewModel})
       : assert(listItemViewModel != null),
@@ -91,8 +83,7 @@ class _RadialListItem extends StatelessWidget {
             ),
           );
 
-    final circleColor =
-        listItemViewModel.isSelected ? const Color(0xFF6688CC) : Colors.white;
+    final circleColor = listItemViewModel.isSelected ? const Color(0xFF6688CC) : Colors.white;
 
     final internalChild = Row(
       children: <Widget>[

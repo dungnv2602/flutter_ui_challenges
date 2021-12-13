@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 
 class PhotoBrowser extends StatefulWidget {
@@ -48,9 +42,7 @@ class _PhotoBrowserState extends State<PhotoBrowser> {
 
   void _nextImage() {
     setState(() {
-      visibleIndex = visibleIndex < widget.imgPaths.length - 1
-          ? visibleIndex + 1
-          : visibleIndex;
+      visibleIndex = visibleIndex < widget.imgPaths.length - 1 ? visibleIndex + 1 : visibleIndex;
     });
   }
 
@@ -106,9 +98,7 @@ class _PhotoBrowserState extends State<PhotoBrowser> {
 }
 
 class _SelectedPhotoIndicator extends StatelessWidget {
-  const _SelectedPhotoIndicator(
-      {Key key, @required this.photoCount, @required this.visibleIndex})
-      : super(key: key);
+  const _SelectedPhotoIndicator({Key key, @required this.photoCount, @required this.visibleIndex}) : super(key: key);
 
   final int photoCount;
   final int visibleIndex;
@@ -121,9 +111,7 @@ class _SelectedPhotoIndicator extends StatelessWidget {
           height: 3,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(2.5),
-            color: index == visibleIndex
-                ? Colors.white
-                : Colors.black.withOpacity(0.2),
+            color: index == visibleIndex ? Colors.white : Colors.black.withOpacity(0.2),
             boxShadow: const [
               BoxShadow(
                 color: Color(0x22000000),

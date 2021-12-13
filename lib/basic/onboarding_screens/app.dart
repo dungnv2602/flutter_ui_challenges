@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
 /// Implementation originated by: https://github.com/devefy/Flutter-Onboarding
 /// With my own workarounds and improvements
 /// Source Design: https://dribbble.com/shots/6278546-Onboarding-Screens

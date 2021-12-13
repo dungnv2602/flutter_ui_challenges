@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
 /// Implementation originated by: https://marcinszalek.pl/flutter/tickets-challenge-parallax/
 /// With my own workarounds and improvements
 /// Source: https://dribbble.com/shots/6325556-Buy-Tickets
@@ -10,7 +5,6 @@ import 'package:flutter/material.dart';
 
 import 'exhibition_bottom_sheet.dart';
 import 'sliding_cards.dart';
-
 
 class HomePage extends StatelessWidget {
   @override

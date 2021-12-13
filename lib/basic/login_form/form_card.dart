@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 
 class FormCard extends StatelessWidget {
@@ -47,8 +41,8 @@ class FormCard extends StatelessWidget {
                   ),
                 ),
               ),
-            const   SizedBox(height: 16),
-            const   Text(
+              const SizedBox(height: 16),
+              const Text(
                 'Password',
                 style: TextStyle(
                   fontFamily: 'Poppins',
@@ -66,7 +60,7 @@ class FormCard extends StatelessWidget {
                   ),
                 ),
               ),
-            const   SizedBox(height: 16),
+              const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[

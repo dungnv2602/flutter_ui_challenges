@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 import 'package:palette_generator/palette_generator.dart';
 
@@ -20,7 +14,7 @@ class MemberWidget extends StatelessWidget {
   const MemberWidget({Key key, @required this.member, this.compactMode = false}) : super(key: key);
 
   Future<PaletteGenerator> _generatePalette(BuildContext context, String imagePath) async {
-    return PaletteGenerator.fromImageProvider(AssetImage(imagePath), size:const  Size(110, 150), maximumColorCount: 20);
+    return PaletteGenerator.fromImageProvider(AssetImage(imagePath), size: const Size(110, 150), maximumColorCount: 20);
   }
 
   @override
@@ -49,7 +43,7 @@ class MemberWidget extends StatelessWidget {
               onTap: onTap,
             ),
           ),
-        const   SizedBox(height: size_20),
+          const SizedBox(height: size_20),
           Padding(
             padding: const EdgeInsets.only(left: 16, top: 8, right: 8, bottom: 8),
             child: Column(

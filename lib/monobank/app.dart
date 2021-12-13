@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
 /// Implementation originated by: https://github.com/fdoyle/flutter_demo_monobank
 /// With my own workarounds and improvements
 // design: https://dribbble.com/shots/5519790-Monobank-PFM
@@ -52,48 +47,35 @@ class _HomePageState extends State<HomePage> {
             debugPrint('currentPageOffset: $currentPageOffset');
             final currentPage = currentPageOffset.floor(); // round down
             debugPrint('chartController.page: $currentPageOffset');
-            debugPrint(
-                'chartController.page.round: ${currentPageOffset.round()}');
-            debugPrint(
-                'chartController.page.floor: ${currentPageOffset.floor()}');
-            debugPrint(
-                'chartController.page.ceil: ${currentPageOffset.ceil()}');
+            debugPrint('chartController.page.round: ${currentPageOffset.round()}');
+            debugPrint('chartController.page.floor: ${currentPageOffset.floor()}');
+            debugPrint('chartController.page.ceil: ${currentPageOffset.ceil()}');
 
             final nextPage = currentPage + 1;
             final respectiveDistance = currentPage - currentPageOffset;
             debugPrint('respectiveDistance: $respectiveDistance');
 
-            final currentPageEntryPercentage =
-                bankingData.entryPercentages[currentPage];
-            debugPrint(
-                'currentPageEntryPercentage: $currentPageEntryPercentage');
+            final currentPageEntryPercentage = bankingData.entryPercentages[currentPage];
+            debugPrint('currentPageEntryPercentage: $currentPageEntryPercentage');
 
-            final currentPageSectionStartPercentage =
-                bankingData.sectionStartPercentages[currentPage];
-            debugPrint(
-                'currentPageSectionStartPercentage: $currentPageSectionStartPercentage');
+            final currentPageSectionStartPercentage = bankingData.sectionStartPercentages[currentPage];
+            debugPrint('currentPageSectionStartPercentage: $currentPageSectionStartPercentage');
 
             final sectionStartOffsetPercent =
-                respectiveDistance * currentPageEntryPercentage +
-                    currentPageSectionStartPercentage;
+                respectiveDistance * currentPageEntryPercentage + currentPageSectionStartPercentage;
             debugPrint('sectionStartOffsetPercent: $sectionStartOffsetPercent');
 
             final nextPageEntryPercentage =
-                nextPage >= bankingData.entryPercentages.length
-                    ? 0
-                    : bankingData.entryPercentages[nextPage];
+                nextPage >= bankingData.entryPercentages.length ? 0 : bankingData.entryPercentages[nextPage];
             debugPrint('nextPageEntryPercentage: $nextPageEntryPercentage');
 
-            final nextPageSectionStartPercentage =
-                nextPage >= bankingData.sectionStartPercentages.length
-                    ? 0
-                    : bankingData.sectionStartPercentages[nextPage];
-            debugPrint(
-                'nextPageSectionStartPercentage: $nextPageSectionStartPercentage');
+            final nextPageSectionStartPercentage = nextPage >= bankingData.sectionStartPercentages.length
+                ? 0
+                : bankingData.sectionStartPercentages[nextPage];
+            debugPrint('nextPageSectionStartPercentage: $nextPageSectionStartPercentage');
 
             final sectionEndOffsetPercent =
-                respectiveDistance * nextPageEntryPercentage +
-                    nextPageSectionStartPercentage;
+                respectiveDistance * nextPageEntryPercentage + nextPageSectionStartPercentage;
             debugPrint('sectionEndOffsetPercent: $sectionEndOffsetPercent');
 
             /// degrees
@@ -104,13 +86,9 @@ class _HomePageState extends State<HomePage> {
 
             /// colors
             final currentColor = bankingData.entries[currentPage].color;
-            final nextColor = nextPage >= bankingData.entries.length
-                ? Colors.red
-                : bankingData.entries[nextPage].color;
-            final blendedColor = Color.alphaBlend(
-                    nextColor.withAlpha((255 * respectiveDistance).round()),
-                    currentColor)
-                .withAlpha(80);
+            final nextColor = nextPage >= bankingData.entries.length ? Colors.red : bankingData.entries[nextPage].color;
+            final blendedColor =
+                Color.alphaBlend(nextColor.withAlpha((255 * respectiveDistance).round()), currentColor).withAlpha(80);
 
             return Stack(
               fit: StackFit.expand,
@@ -123,10 +101,8 @@ class _HomePageState extends State<HomePage> {
                 ),
                 IgnorePointer(
                   child: CustomPaint(
-                    painter: PieChartPainter(
-                        currentColor: currentColor,
-                        nextColor: nextColor,
-                        blendedColor: blendedColor),
+                    painter:
+                        PieChartPainter(currentColor: currentColor, nextColor: nextColor, blendedColor: blendedColor),
                   ),
                 ),
                 IgnorePointer(
@@ -159,11 +135,7 @@ class PieChartOverlayArcPainter extends CustomPainter {
   final double respectiveDistance;
 
   const PieChartOverlayArcPainter(
-      {this.startDegrees,
-      this.endDegrees,
-      this.currentColor,
-      this.nextColor,
-      this.respectiveDistance});
+      {this.startDegrees, this.endDegrees, this.currentColor, this.nextColor, this.respectiveDistance});
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -178,11 +150,9 @@ class PieChartOverlayArcPainter extends CustomPainter {
     final endAngle = endDegrees * degrees2Radians;
 
     /// colors
-    final startColor = Color.alphaBlend(
-        nextColor.withAlpha((255 * respectiveDistance).round()), currentColor);
-    final endColor = Color.alphaBlend(
-        nextColor.shade800.withAlpha((255 * respectiveDistance).round()),
-        currentColor.shade800);
+    final startColor = Color.alphaBlend(nextColor.withAlpha((255 * respectiveDistance).round()), currentColor);
+    final endColor =
+        Color.alphaBlend(nextColor.shade800.withAlpha((255 * respectiveDistance).round()), currentColor.shade800);
     final gradient = SweepGradient(
       startAngle: startAngle,
       endAngle: endAngle,
@@ -237,8 +207,7 @@ class PieChartPainter extends CustomPainter {
     final radius = min(width, height) / 2;
     final innerPieChartRadius = radius / 2 + INSET;
 
-    canvas.saveLayer(Rect.fromCircle(center: center, radius: radius),
-        Paint()); // ?: can replace drawCircle instead?
+    canvas.saveLayer(Rect.fromCircle(center: center, radius: radius), Paint()); // ?: can replace drawCircle instead?
 
     canvas.drawColor(Colors.black26, BlendMode.srcATop);
 
@@ -254,9 +223,7 @@ class PieChartPainter extends CustomPainter {
     bankingData.sectionStartPercentages.forEach((percentage) {
       canvas.drawLine(
           center,
-          center +
-              Offset(cos(percentage * 2 * pi) * radius,
-                  sin(percentage * 2 * pi) * radius),
+          center + Offset(cos(percentage * 2 * pi) * radius, sin(percentage * 2 * pi) * radius),
           Paint()
             ..blendMode = BlendMode.clear
             ..strokeWidth = 2);
@@ -267,9 +234,7 @@ class PieChartPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(PieChartPainter oldDelegate) =>
-      currentColor != oldDelegate.currentColor ||
-      nextColor != oldDelegate.nextColor ||
-      blendedColor != blendedColor;
+      currentColor != oldDelegate.currentColor || nextColor != oldDelegate.nextColor || blendedColor != blendedColor;
 
   @override
   bool shouldRebuildSemantics(PieChartPainter oldDelegate) => false;
@@ -289,10 +254,7 @@ class _Data extends StatelessWidget {
           children: <Widget>[
             Text(
               '\$${entry.amount} ',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 35,
-                  fontWeight: FontWeight.bold),
+              style: TextStyle(color: Colors.white, fontSize: 35, fontWeight: FontWeight.bold),
             ),
             Text(
               '${entry.label}',

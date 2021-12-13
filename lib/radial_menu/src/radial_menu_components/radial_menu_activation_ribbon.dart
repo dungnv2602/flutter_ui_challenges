@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 part of radial_menu;
 
 class RadialMenuActivationRibbon extends StatelessWidget {
@@ -42,8 +36,7 @@ class RadialMenuActivationRibbon extends StatelessWidget {
       animation: menuController,
       builder: (context, child) {
         // hide the painter if state # activating/dissipating
-        if (menuController.state != RadialMenuState.activating &&
-            menuController.state != RadialMenuState.dissipating) {
+        if (menuController.state != RadialMenuState.activating && menuController.state != RadialMenuState.dissipating) {
           return const SizedBox.shrink();
         }
 
@@ -73,14 +66,11 @@ class RadialMenuActivationRibbon extends StatelessWidget {
           // full circle case => animate based on direction
           if (sweepAngle == 2 * pi) {
             painterStartAngle = initialItemAngle;
-            painterEndAngle =
-                initialItemAngle + sweepAngleDirection * menuController.progress;
+            painterEndAngle = initialItemAngle + sweepAngleDirection * menuController.progress;
             // half circle case => animate to edges
           } else {
-            painterStartAngle = initialItemAngle -
-                (initialItemAngle - startAngle) * menuController.progress;
-            painterEndAngle = initialItemAngle +
-                (endAngle - initialItemAngle) * menuController.progress;
+            painterStartAngle = initialItemAngle - (initialItemAngle - startAngle) * menuController.progress;
+            painterEndAngle = initialItemAngle + (endAngle - initialItemAngle) * menuController.progress;
           }
           painterRadius = radius;
           opacity = 1;
@@ -88,8 +78,7 @@ class RadialMenuActivationRibbon extends StatelessWidget {
           painterStartAngle = startAngle;
           painterEndAngle = endAngle;
           // 25% more radius when dissipating
-          final adjustedProgress =
-              const Interval(0, 0.5).transform(menuController.progress);
+          final adjustedProgress = const Interval(0, 0.5).transform(menuController.progress);
           painterRadius = radius * (1 + (0.25 * adjustedProgress));
           opacity = 1 - adjustedProgress;
         }

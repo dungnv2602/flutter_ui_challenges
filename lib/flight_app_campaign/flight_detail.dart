@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 import '../utils/utils.dart';
 
@@ -212,7 +206,7 @@ class __InfoColumnState extends State<_InfoColumn> with SingleTickerProviderStat
             ),
             rightInfoWidget: Row(
               children: <Widget>[
-          const       Spacer(),
+                const Spacer(),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
@@ -233,7 +227,7 @@ class __InfoColumnState extends State<_InfoColumn> with SingleTickerProviderStat
             ),
             rightInfoWidget: Row(
               children: <Widget>[
-        const         Spacer(),
+                const Spacer(),
                 Text('economy', style: flightInfoRightValue),
               ],
             ),
@@ -248,7 +242,7 @@ class __InfoColumnState extends State<_InfoColumn> with SingleTickerProviderStat
             ),
             rightInfoWidget: Row(
               children: <Widget>[
-          const       Spacer(),
+                const Spacer(),
                 Text('1500km', style: flightInfoRightValue),
               ],
             ),
@@ -317,7 +311,7 @@ class _LeftInfoWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Icon(iconData, size: 32, color: redPink),
-     const    SizedBox(width: 16),
+        const SizedBox(width: 16),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -340,7 +334,7 @@ class _MaskedHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment:const  Alignment(0, -0.9),
+      alignment: const Alignment(0, -0.9),
       child: ShaderMask(
         shaderCallback: (Rect bounds) {
           return LinearGradient(

@@ -1,14 +1,8 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 
 const white = Color(0xFFD2C1D6);
 const purple = Color(0xFF644eb2);
-final purpleAccent =const  Color(0xFF644eb2).withOpacity(0.5);
+final purpleAccent = const Color(0xFF644eb2).withOpacity(0.5);
 
 const redPink = Color(0xFFb95e94);
 const redPurple = Color(0xFF843B65);
@@ -30,13 +24,11 @@ const smallPurple = TextStyle(
   color: purple,
 );
 
-
 const bigPurple = TextStyle(
   color: purple,
   fontWeight: FontWeight.bold,
   height: 1,
 );
-
 
 const smallGrey = TextStyle(
   color: Colors.black26,

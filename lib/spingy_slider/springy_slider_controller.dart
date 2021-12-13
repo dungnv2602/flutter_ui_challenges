@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
 import 'package:flutter/scheduler.dart';
@@ -122,8 +116,7 @@ class SpringySliderController extends ChangeNotifier {
     );
 
     final crestSpringNormal =
-        (_crestSpringEndPercent - _crestSpringStartPercent) /
-            (_crestSpringEndPercent - _crestSpringStartPercent).abs();
+        (_crestSpringEndPercent - _crestSpringStartPercent) / (_crestSpringEndPercent - _crestSpringStartPercent).abs();
 
     _crestSpringSimulation = SpringSimulation(
       _crestSpringConfig,
@@ -158,8 +151,7 @@ class SpringySliderController extends ChangeNotifier {
       _crestSpringSimulation.dx(lastFrameTime),
     );
 
-    if (_sliderSpringSimulation.isDone(_springTime) &&
-        _crestSpringSimulation.isDone(lastFrameTime)) {
+    if (_sliderSpringSimulation.isDone(_springTime) && _crestSpringSimulation.isDone(lastFrameTime)) {
       _springTicker
         ..stop()
         ..dispose();

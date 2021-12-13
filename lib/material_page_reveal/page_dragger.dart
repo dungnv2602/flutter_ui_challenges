@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'dart:async';
 import 'dart:ui';
 
@@ -74,8 +68,7 @@ class _PageDraggerState extends State<PageDragger> {
     emitSlideUpdateEvent(slideUpdateType, slideDirection, slidePercent);
   }
 
-  void emitSlideUpdateEvent(SlideUpdateType slideUpdateType,
-      SlideDirection slideDirection, double slidePercent) {
+  void emitSlideUpdateEvent(SlideUpdateType slideUpdateType, SlideDirection slideDirection, double slidePercent) {
     widget.slideUpdateStream.add(
       SlideUpdate(
         slidePercent: slidePercent,
@@ -115,19 +108,15 @@ class PageDraggerAnimationController {
     if (transitionGoal == TransitionGoal.open) {
       final slidePercentRemaining = 1 - slidePercent;
       endSlidePercent = 1;
-      duration = Duration(
-          milliseconds:
-              (slidePercentRemaining / PERCENT_PER_MILLISECOND).round());
+      duration = Duration(milliseconds: (slidePercentRemaining / PERCENT_PER_MILLISECOND).round());
     } else {
       endSlidePercent = 0;
-      duration = Duration(
-          milliseconds: (slidePercent / PERCENT_PER_MILLISECOND).round());
+      duration = Duration(milliseconds: (slidePercent / PERCENT_PER_MILLISECOND).round());
     }
 
     controller = AnimationController(vsync: vsync, duration: duration)
       ..addListener(() {
-        final slidePercent =
-            lerpDouble(startSlidePercent, endSlidePercent, controller.value);
+        final slidePercent = lerpDouble(startSlidePercent, endSlidePercent, controller.value);
 
         slideUpdateStream.add(
           SlideUpdate(

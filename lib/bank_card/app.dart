@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 // design: https://dribbble.com/shots/5551358-Day11-Animated-Financial-Bank-Card
 // heavily inspired by this implementation: https://github.com/fdoyle/flutter_demo_bank_card
 import 'package:flutter/material.dart';

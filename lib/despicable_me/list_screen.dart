@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 
 import 'character_widget.dart';
@@ -52,7 +46,7 @@ class _ListScreenState extends State<ListScreen> {
                 text: TextSpan(
                   children: [
                     TextSpan(text: 'Despicable Me', style: TextUtils.display1),
-                  const   TextSpan(text: '\n'),
+                    const TextSpan(text: '\n'),
                     TextSpan(text: 'Characters', style: TextUtils.display2),
                   ],
                 ),
@@ -60,7 +54,7 @@ class _ListScreenState extends State<ListScreen> {
             ),
             Expanded(
               child: PageView(
-                physics:const  BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 controller: _controller,
                 children: characters
                     .map((item) => CharacterWidget(

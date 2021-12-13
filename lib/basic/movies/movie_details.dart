@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 
 import 'actor_scroller.dart';
@@ -28,9 +22,9 @@ class MovieDetailsPage extends StatelessWidget {
               child: Storyline(storyline: movie.storyline),
             ),
             PhotoScroller(photoUrls: movie.photoUrls),
-       const      SizedBox(height: 24.0),
+            const SizedBox(height: 24.0),
             ActorScroller(actors: movie.actors),
-          const   SizedBox(height: 48.0),
+            const SizedBox(height: 48.0),
           ],
         ),
       ),
@@ -55,7 +49,7 @@ class Storyline extends StatelessWidget {
           'Story line',
           style: textTheme.subhead.copyWith(fontSize: 18.0),
         ),
-     const    SizedBox(height: 8.0),
+        const SizedBox(height: 8.0),
         Text(
           storyline,
           style: textTheme.body1.copyWith(

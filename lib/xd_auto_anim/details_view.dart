@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 
 import '../utils/utils.dart';
@@ -21,8 +15,7 @@ class DetailsView extends StatefulWidget {
   _DetailsViewState createState() => _DetailsViewState();
 }
 
-class _DetailsViewState extends State<DetailsView>
-    with SingleTickerProviderStateMixin {
+class _DetailsViewState extends State<DetailsView> with SingleTickerProviderStateMixin {
   void _pop(BuildContext context) {
     Navigator.pop(context, true);
   }
@@ -157,16 +150,13 @@ class Description extends StatefulWidget {
   _DescriptionState createState() => _DescriptionState();
 }
 
-class _DescriptionState extends State<Description>
-    with SingleTickerProviderStateMixin {
+class _DescriptionState extends State<Description> with SingleTickerProviderStateMixin {
   AnimationController controller;
 
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 500))
-      ..forward();
+    controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 500))..forward();
   }
 
   @override
@@ -186,8 +176,7 @@ class _DescriptionState extends State<Description>
         builder: (_, child) => Opacity(
           opacity: Curves.ease.transform(controller.value),
           child: Transform.translate(
-            offset:
-                Offset(0, 400 - 400 * Curves.ease.transform(controller.value)),
+            offset: Offset(0, 400 - 400 * Curves.ease.transform(controller.value)),
             child: child,
           ),
         ),

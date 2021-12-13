@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 /// design: https://dribbble.com/shots/3898209-iPhone-X-Social-App
 
 // todo fix error begin
@@ -37,8 +31,7 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage>
-    with SingleTickerProviderStateMixin {
+class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
   AnimationController controller;
   Animation heightFractionAnimation;
 
@@ -49,8 +42,7 @@ class _HomePageState extends State<HomePage>
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 500));
+    controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 500));
     heightFractionAnimation = Tween(begin: 0.78, end: 0.45).animate(controller);
   }
 
@@ -66,16 +58,13 @@ class _HomePageState extends State<HomePage>
   }
 
   void dragUpdate(DragUpdateDetails details) {
-    controller.value -=
-        details.primaryDelta / (maxHeight ?? details.primaryDelta);
+    controller.value -= details.primaryDelta / (maxHeight ?? details.primaryDelta);
   }
 
   void dragEnd(DragEndDetails details) {
-    if (controller.isAnimating ||
-        controller.status == AnimationStatus.completed) return;
+    if (controller.isAnimating || controller.status == AnimationStatus.completed) return;
 
-    final double flingVelocity =
-        details.velocity.pixelsPerSecond.dy / maxHeight;
+    final double flingVelocity = details.velocity.pixelsPerSecond.dy / maxHeight;
     if (flingVelocity < 0.0)
       controller.fling(velocity: max(2.0, -flingVelocity));
     else if (flingVelocity > 0.0)
@@ -107,8 +96,7 @@ class _HomePageState extends State<HomePage>
                       return Stack(
                         fit: StackFit.expand,
                         children: <Widget>[
-                          Image.asset(profiles[index].imgPath,
-                              fit: BoxFit.cover),
+                          Image.asset(profiles[index].imgPath, fit: BoxFit.cover),
                           Container(
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
@@ -157,8 +145,7 @@ class _HomePageState extends State<HomePage>
 class AnimatedBottomSheet extends StatelessWidget {
   final PageController controller;
 
-  const AnimatedBottomSheet({Key key, @required this.controller})
-      : super(key: key);
+  const AnimatedBottomSheet({Key key, @required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -176,9 +163,8 @@ class AnimatedBottomSheet extends StatelessWidget {
         ],
         color: const Color(0xFFeeeeee),
       ),
-      child: PageViewTransition(
-          controller: controller,
-          itemBuilder: (_, index) => ProfileInfoBottomSheet(index: index)),
+      child:
+          PageViewTransition(controller: controller, itemBuilder: (_, index) => ProfileInfoBottomSheet(index: index)),
     );
   }
 }
@@ -187,9 +173,7 @@ class PageViewTransition extends StatelessWidget {
   final PageController controller;
   final IndexedWidgetBuilder itemBuilder;
 
-  const PageViewTransition(
-      {Key key, @required this.controller, @required this.itemBuilder})
-      : super(key: key);
+  const PageViewTransition({Key key, @required this.controller, @required this.itemBuilder}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -198,10 +182,8 @@ class PageViewTransition extends StatelessWidget {
       builder: (_, __) {
         final currentPage = calculateCurrentPage(controller);
 
-        final opacityTween =
-            calculateTween(controller: controller, velocity: 5.0);
-        final translateTween =
-            calculateTween(controller: controller, velocity: 1.0);
+        final opacityTween = calculateTween(controller: controller, velocity: 5.0);
+        final translateTween = calculateTween(controller: controller, velocity: 1.0);
 
         return Opacity(
           opacity: opacityTween,

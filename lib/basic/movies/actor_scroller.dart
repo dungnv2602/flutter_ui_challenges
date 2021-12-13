@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 
 import 'models.dart';
@@ -23,7 +17,7 @@ class ActorScroller extends StatelessWidget {
             backgroundImage: AssetImage(actor.avatarUrl),
             radius: 40,
           ),
-       const    SizedBox(height: 8),
+          const SizedBox(height: 8),
           Text(actor.name),
         ],
       ),
@@ -37,7 +31,7 @@ class ActorScroller extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
-          padding:const  EdgeInsets.symmetric(horizontal: 20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Text(
             'Actors',
             style: textTheme.subhead.copyWith(fontSize: 18.0),

@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -73,8 +67,7 @@ class SlidingCard extends StatelessWidget {
   final String imgUrl;
   final double offset;
 
-  const SlidingCard({Key key, this.name, this.date, this.imgUrl, this.offset})
-      : super(key: key);
+  const SlidingCard({Key key, this.name, this.date, this.imgUrl, this.offset}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -94,10 +87,8 @@ class SlidingCard extends StatelessWidget {
               child: Image.asset(
                 imgUrl,
                 height: MediaQuery.of(context).size.height * 0.3,
-                alignment: Alignment(-offset.abs(),
-                    0), // alignment with BoxFit.none => parallax effect
-                fit: BoxFit
-                    .none, // allow infinity size of image, to make alignment works
+                alignment: Alignment(-offset.abs(), 0), // alignment with BoxFit.none => parallax effect
+                fit: BoxFit.none, // allow infinity size of image, to make alignment works
               ),
             ),
             SizedBox(height: 8),
@@ -120,8 +111,7 @@ class CardContent extends StatelessWidget {
   final String date;
   final double offset;
 
-  const CardContent({Key key, this.name, this.date, this.offset})
-      : super(key: key);
+  const CardContent({Key key, this.name, this.date, this.offset}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

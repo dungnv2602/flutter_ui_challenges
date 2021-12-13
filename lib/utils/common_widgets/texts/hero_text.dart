@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 
 enum ViewState {
@@ -51,9 +45,7 @@ class HeroTextPush extends StatelessWidget {
           textStyle: textStyle,
           shrunkSize: shrunkSize,
           enlargedSize: enlargedSize,
-          viewState: direction == HeroFlightDirection.push
-              ? ViewState.enlarge
-              : ViewState.shrink,
+          viewState: direction == HeroFlightDirection.push ? ViewState.enlarge : ViewState.shrink,
           isOverflow: true,
         );
       },
@@ -126,8 +118,7 @@ class _HeroText extends StatefulWidget {
   _HeroTextState createState() => _HeroTextState();
 }
 
-class _HeroTextState extends State<_HeroText>
-    with SingleTickerProviderStateMixin {
+class _HeroTextState extends State<_HeroText> with SingleTickerProviderStateMixin {
   AnimationController controller;
   Animation<double> sizeTween;
 

@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 import 'package:palette_generator/palette_generator.dart';
 
@@ -28,7 +22,7 @@ class _MemberDetailsPageState extends State<MemberDetailsPage> with SingleTicker
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(vsync: this, duration: const  Duration(milliseconds: 1000));
+    controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 1000));
     controller.forward();
   }
 
@@ -83,28 +77,28 @@ class _MemberDetailsPageState extends State<MemberDetailsPage> with SingleTicker
                 SizedBox(height: size_8),
                 Text(widget.member.occupation,
                     style: descriptionBoldStyle.copyWith(color: widget.palette.lightMutedColor.color)),
-              const   SizedBox(height: size_20),
+                const SizedBox(height: size_20),
                 Expanded(
                   flex: 2,
                   child: SingleChildScrollView(
-                    physics:const  BouncingScrollPhysics(),
+                    physics: const BouncingScrollPhysics(),
                     scrollDirection: Axis.vertical,
                     child: Text(widget.member.description, style: descriptionStyle),
                   ),
                 ),
-             const    SizedBox(height: size_20),
-                 Text('Our Team Members'.toUpperCase(), style: descriptionBoldStyle),
+                const SizedBox(height: size_20),
+                Text('Our Team Members'.toUpperCase(), style: descriptionBoldStyle),
                 SizedBox(height: size_8),
                 Container(
                   height: size_100,
                   child: SlideTransition(
-                    position: Tween<Offset>(begin:const  Offset(2, 0), end:const  Offset(0, 0))
+                    position: Tween<Offset>(begin: const Offset(2, 0), end: const Offset(0, 0))
                         .animate(CurvedAnimation(parent: controller, curve: Curves.fastOutSlowIn)),
                     child: FadeTransition(
                       opacity: controller,
                       child: ListView.separated(
                           scrollDirection: Axis.horizontal,
-                          physics:const  BouncingScrollPhysics(),
+                          physics: const BouncingScrollPhysics(),
                           itemBuilder: (context, index) {
                             return ClipRRect(
                               borderRadius: BorderRadius.circular(8),

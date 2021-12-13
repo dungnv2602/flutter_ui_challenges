@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 
 class SpinnerText extends StatefulWidget {
@@ -25,8 +19,7 @@ class SpinnerText extends StatefulWidget {
   _SpinnerTextState createState() => _SpinnerTextState();
 }
 
-class _SpinnerTextState extends State<SpinnerText>
-    with SingleTickerProviderStateMixin {
+class _SpinnerTextState extends State<SpinnerText> with SingleTickerProviderStateMixin {
   String bottomText = '';
   AnimationController controller;
   String topText = '';
@@ -75,8 +68,7 @@ class _SpinnerTextState extends State<SpinnerText>
       child: Stack(
         children: <Widget>[
           FractionalTranslation(
-            translation:
-                Offset(0, widget.curveIn.transform(controller.value) - 1),
+            translation: Offset(0, widget.curveIn.transform(controller.value) - 1),
             child: Opacity(
               opacity: widget.curveIn.transform(controller.value),
               child: _Text(text: topText),

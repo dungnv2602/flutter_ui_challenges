@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
 /// Implementation originated by: https://github.com/tunitowen/password_animation
 /// With my own workarounds and improvements
 /// source: https://dribbble.com/shots/4755212-Password-Guide
@@ -11,7 +6,6 @@ import 'package:provider/provider.dart';
 
 import 'text_notifier.dart';
 import 'validate_item.dart';
-
 
 class Home extends StatelessWidget {
   final textController = TextEditingController();
@@ -61,8 +55,7 @@ class Home extends StatelessWidget {
                 color: Colors.yellow[700],
                 child: Text(
                   'SAVE',
-                  style:
-                      const TextStyle(color: Colors.deepPurple, fontSize: 18),
+                  style: const TextStyle(color: Colors.deepPurple, fontSize: 18),
                 ),
                 onPressed: () {},
               ),
@@ -77,25 +70,21 @@ class Home extends StatelessWidget {
 class StackWidgets extends StatefulWidget {
   final TextEditingController textController;
 
-  const StackWidgets({Key key, @required this.textController})
-      : super(key: key);
+  const StackWidgets({Key key, @required this.textController}) : super(key: key);
 
   @override
   _StackWidgetsState createState() => _StackWidgetsState();
 }
 
-class _StackWidgetsState extends State<StackWidgets>
-    with SingleTickerProviderStateMixin<StackWidgets> {
+class _StackWidgetsState extends State<StackWidgets> with SingleTickerProviderStateMixin<StackWidgets> {
   AnimationController _controller;
   Animation<double> _scale;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 250));
-    _scale = Tween<double>(begin: 0, end: 1).animate(
-        CurvedAnimation(parent: _controller, curve: Curves.elasticOut));
+    _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 250));
+    _scale = Tween<double>(begin: 0, end: 1).animate(CurvedAnimation(parent: _controller, curve: Curves.elasticOut));
   }
 
   bool eightChars(String text) => text.length >= 8;
@@ -104,8 +93,7 @@ class _StackWidgetsState extends State<StackWidgets>
 
   bool upperCaseChar(String text) => text.contains(new RegExp(r'[A-Z]'), 0);
 
-  bool specialChar(String text) =>
-      text.isNotEmpty && !text.contains(RegExp(r'^[\w&.-]+$'), 0);
+  bool specialChar(String text) => text.isNotEmpty && !text.contains(RegExp(r'^[\w&.-]+$'), 0);
 
   final separator = Container(height: 1, color: Colors.blue[100]);
 
@@ -133,8 +121,7 @@ class _StackWidgetsState extends State<StackWidgets>
             child: Transform.rotate(
               angle: 0.05,
               child: Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5)),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
                 elevation: 4,
                 color: Colors.yellow[800],
                 child: Column(
@@ -160,25 +147,20 @@ class _StackWidgetsState extends State<StackWidgets>
             child: Card(
               margin: const EdgeInsets.only(left: 80),
               elevation: 6,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5)),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
               child: Stack(
                 children: <Widget>[
                   ListView(
                     shrinkWrap: true,
                     children: <Widget>[
                       separator,
-                      ValidateItemConsumer(
-                          title: '8 characters', onValueChanged: eightChars),
+                      ValidateItemConsumer(title: '8 characters', onValueChanged: eightChars),
                       separator,
-                      ValidateItemConsumer(
-                          title: '1 special char', onValueChanged: specialChar),
+                      ValidateItemConsumer(title: '1 special char', onValueChanged: specialChar),
                       separator,
-                      ValidateItemConsumer(
-                          title: '1 upper case', onValueChanged: upperCaseChar),
+                      ValidateItemConsumer(title: '1 upper case', onValueChanged: upperCaseChar),
                       separator,
-                      ValidateItemConsumer(
-                          title: '1 number', onValueChanged: number),
+                      ValidateItemConsumer(title: '1 number', onValueChanged: number),
                     ],
                   ),
                   Container(
@@ -195,10 +177,7 @@ class _StackWidgetsState extends State<StackWidgets>
                     child: Consumer<TextNotifier>(
                       builder: (_, notifier, child) {
                         final text = notifier.value;
-                        (eightChars(text) &&
-                                number(text) &&
-                                specialChar(text) &&
-                                upperCaseChar(text))
+                        (eightChars(text) && number(text) && specialChar(text) && upperCaseChar(text))
                             ? _controller.forward()
                             : _controller.reverse();
                         return ScaleTransition(

@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 
 class BottomUpRoute extends PageRouteBuilder {
@@ -76,45 +70,45 @@ class ScaleRoute extends PageRouteBuilder {
 
   ScaleRoute(this.widget)
       : super(
-      pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) =>
-      widget,
-      transitionDuration: const Duration(milliseconds: 1000),
-      transitionsBuilder: (
-          BuildContext context,
-          Animation<double> animation,
-          Animation<double> secondaryAnimation,
-          Widget child,
-          ) {
-        return ScaleTransition(
-          scale: Tween<double>(
-            begin: 0.0,
-            end: 1.0,
-          ).animate(
-            CurvedAnimation(
-              parent: animation,
-              curve: const Interval(
-                0.00,
-                0.50,
-                curve: Curves.linear,
-              ),
-            ),
-          ),
-          child: ScaleTransition(
-            scale: Tween<double>(
-              begin: 1.5,
-              end: 1.0,
-            ).animate(
-              CurvedAnimation(
-                parent: animation,
-                curve: const Interval(
-                  0.50,
-                  1.00,
-                  curve: Curves.linear,
+            pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) =>
+                widget,
+            transitionDuration: const Duration(milliseconds: 1000),
+            transitionsBuilder: (
+              BuildContext context,
+              Animation<double> animation,
+              Animation<double> secondaryAnimation,
+              Widget child,
+            ) {
+              return ScaleTransition(
+                scale: Tween<double>(
+                  begin: 0.0,
+                  end: 1.0,
+                ).animate(
+                  CurvedAnimation(
+                    parent: animation,
+                    curve: const Interval(
+                      0.00,
+                      0.50,
+                      curve: Curves.linear,
+                    ),
+                  ),
                 ),
-              ),
-            ),
-            child: child,
-          ),
-        );
-      });
+                child: ScaleTransition(
+                  scale: Tween<double>(
+                    begin: 1.5,
+                    end: 1.0,
+                  ).animate(
+                    CurvedAnimation(
+                      parent: animation,
+                      curve: const Interval(
+                        0.50,
+                        1.00,
+                        curve: Curves.linear,
+                      ),
+                    ),
+                  ),
+                  child: child,
+                ),
+              );
+            });
 }

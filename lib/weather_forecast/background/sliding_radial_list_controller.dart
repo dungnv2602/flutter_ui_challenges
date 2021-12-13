@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'dart:async';
 import 'dart:math';
 
@@ -17,10 +11,8 @@ class SlidingRadialListController extends ChangeNotifier {
     @required this.itemCount,
   })  : assert(vsync != null),
         assert(itemCount != null),
-        _slideController =
-            AnimationController(duration: slideDuration, vsync: vsync),
-        _fadeController =
-            AnimationController(duration: fadeDuration, vsync: vsync) {
+        _slideController = AnimationController(duration: slideDuration, vsync: vsync),
+        _fadeController = AnimationController(duration: fadeDuration, vsync: vsync) {
     _slideController
       ..addListener(notifyListeners)
       ..addStatusListener((status) {

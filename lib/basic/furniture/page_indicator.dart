@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 
 class PageIndicator extends StatelessWidget {
@@ -32,7 +26,7 @@ class PageIndicator extends StatelessWidget {
             color: Colors.black54,
             boxShadow: [
               BoxShadow(
-                offset:const  Offset(0, 2),
+                offset: const Offset(0, 2),
                 blurRadius: 2,
                 color: Colors.black12,
               ),

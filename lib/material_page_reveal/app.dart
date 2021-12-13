@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 /// design: https://github.com/Ramotion/paper-onboarding-android
 /// Implementation originated by Matt Carroll/Fluttery
 /// With my own workarounds and improvements
@@ -36,8 +30,7 @@ class MaterialPageReveal extends StatefulWidget {
   _MaterialPageRevealState createState() => _MaterialPageRevealState();
 }
 
-class _MaterialPageRevealState extends State<MaterialPageReveal>
-    with TickerProviderStateMixin {
+class _MaterialPageRevealState extends State<MaterialPageReveal> with TickerProviderStateMixin {
   PageDraggerAnimationController animationController;
 
   StreamController<SlideUpdate> slideUpdateStream;
@@ -150,8 +143,7 @@ class _MaterialPageRevealState extends State<MaterialPageReveal>
 final pages = [
   PageViewModel(
     color: const Color(0xFF9B90BC),
-    image: Image.asset('assets/images/page_reveal/stores.png',
-        width: 200, height: 200),
+    image: Image.asset('assets/images/page_reveal/stores.png', width: 200, height: 200),
     title: Text(
       'Store',
       style: TextStyle(
@@ -170,8 +162,7 @@ final pages = [
   ),
   PageViewModel(
     color: const Color(0xFF678FB4),
-    image: Image.asset('assets/images/page_reveal/hotels.png',
-        width: 250, height: 250),
+    image: Image.asset('assets/images/page_reveal/hotels.png', width: 250, height: 250),
     title: Text(
       'Hotels',
       style: TextStyle(
@@ -194,8 +185,7 @@ final pages = [
   ),
   PageViewModel(
     color: const Color(0xFF65B0B4),
-    image: Image.asset('assets/images/page_reveal/banks.png',
-        width: 300, height: 300),
+    image: Image.asset('assets/images/page_reveal/banks.png', width: 300, height: 300),
     title: Text(
       'Banks',
       style: TextStyle(

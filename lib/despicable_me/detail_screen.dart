@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'dart:math' as math;
 import 'dart:ui';
 
@@ -27,7 +21,7 @@ class _DetailScreenState extends State<DetailScreen> with SingleTickerProviderSt
   @override
   void initState() {
     super.initState();
-    _dragController = AnimationController(vsync: this, duration:const  Duration(milliseconds: 250));
+    _dragController = AnimationController(vsync: this, duration: const Duration(milliseconds: 250));
     WidgetsBinding.instance.addPostFrameCallback((_) => _afterLayout(context));
   }
 
@@ -84,7 +78,7 @@ class _DetailScreenState extends State<DetailScreen> with SingleTickerProviderSt
           ),
           SingleChildScrollView(
             padding: const EdgeInsets.all(32),
-            physics:const  BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -133,7 +127,7 @@ class _DetailScreenState extends State<DetailScreen> with SingleTickerProviderSt
                       borderRadius: BorderRadius.vertical(
                         top: Radius.circular(32),
                       ),
-                      boxShadow:  <BoxShadow>[
+                      boxShadow: <BoxShadow>[
                         BoxShadow(
                           blurRadius: 10.0,
                           spreadRadius: 4.0,
@@ -146,7 +140,7 @@ class _DetailScreenState extends State<DetailScreen> with SingleTickerProviderSt
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text('Clips(16)', style: TextUtils.subHeading.copyWith(color: Colors.black)),
-                      const   SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         GridView.builder(
                           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: widget.character.colors.length,

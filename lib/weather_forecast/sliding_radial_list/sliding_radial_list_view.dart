@@ -1,17 +1,9 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_tmdb/ui_toolkit/ui_toolkit.dart';
 
-
-typedef SlidingRadialListViewBuilder = Widget Function(
-    BuildContext context, int index);
+typedef SlidingRadialListViewBuilder = Widget Function(BuildContext context, int index);
 
 class SlidingRadialListView extends StatelessWidget {
   const SlidingRadialListView({
@@ -47,8 +39,7 @@ class SlidingRadialListView extends StatelessWidget {
     return listItems;
   }
 
-  Widget _radialListItem(
-      BuildContext context, int index, double angle, double opacity) {
+  Widget _radialListItem(BuildContext context, int index, double angle, double opacity) {
     return Positioned(
       top: origin.dy,
       left: origin.dx,
@@ -89,10 +80,8 @@ class SlidingRadialListViewController extends ChangeNotifier {
     Duration fadeDuration = const Duration(milliseconds: 300),
   })  : assert(vsync != null),
         assert(itemCount != null),
-        _slideController =
-            AnimationController(duration: slideDuration, vsync: vsync),
-        _fadeController =
-            AnimationController(duration: fadeDuration, vsync: vsync) {
+        _slideController = AnimationController(duration: slideDuration, vsync: vsync),
+        _fadeController = AnimationController(duration: fadeDuration, vsync: vsync) {
     _slideController
       ..addListener(notifyListeners)
       ..addStatusListener((status) {

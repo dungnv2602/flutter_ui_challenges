@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -51,16 +45,13 @@ class PageIndicators extends StatelessWidget {
       );
     }
 
-    final baseTranslation =
-        (indicatorViewModel.pages.length - 1) / 2 * MAX_INDICATOR_SIZE;
+    final baseTranslation = (indicatorViewModel.pages.length - 1) / 2 * MAX_INDICATOR_SIZE;
 
-    var translationX = baseTranslation -
-        indicatorViewModel.currentPageIndex * MAX_INDICATOR_SIZE;
+    var translationX = baseTranslation - indicatorViewModel.currentPageIndex * MAX_INDICATOR_SIZE;
 
     if (indicatorViewModel.slideDirection == SlideDirection.leftToRight) {
       translationX += indicatorViewModel.slidePercent * MAX_INDICATOR_SIZE;
-    } else if (indicatorViewModel.slideDirection ==
-        SlideDirection.rightToLeft) {
+    } else if (indicatorViewModel.slideDirection == SlideDirection.rightToLeft) {
       translationX -= indicatorViewModel.slidePercent * MAX_INDICATOR_SIZE;
     }
 
@@ -113,13 +104,11 @@ class PageBubble extends StatelessWidget {
             // if isHollow => display border
             // else display fill
             color: bubbleViewModel.isHollow
-                ? INDICATOR_COLOR
-                    .withAlpha((0x88 * bubbleViewModel.activePercent).round())
+                ? INDICATOR_COLOR.withAlpha((0x88 * bubbleViewModel.activePercent).round())
                 : INDICATOR_COLOR,
             border: Border.all(
               color: bubbleViewModel.isHollow
-                  ? INDICATOR_COLOR.withAlpha(
-                      (0x88 * (1 - bubbleViewModel.activePercent)).round())
+                  ? INDICATOR_COLOR.withAlpha((0x88 * (1 - bubbleViewModel.activePercent)).round())
                   : Colors.transparent,
               width: 3,
             ),

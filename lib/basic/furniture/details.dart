@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 
 import 'detail_data.dart';
@@ -50,7 +44,7 @@ class _DetailPageState extends State<DetailPage> {
                 /// Images
                 PageView.builder(
                   itemCount: furnitureDetailList.length,
-                  physics:const  AlwaysScrollableScrollPhysics(),
+                  physics: const AlwaysScrollableScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   onPageChanged: onPageChanged,
                   controller: pageController,
@@ -83,9 +77,9 @@ class _DetailPageState extends State<DetailPage> {
                                 data.subTitle,
                                 style: TextStyle(color: Colors.black54),
                               ),
-                          const     SizedBox(height: 40),
+                              const SizedBox(height: 40),
                               Text('${data.price} \$'),
-                          const     SizedBox(height: 40),
+                              const SizedBox(height: 40),
                             ],
                           ),
                         ),
@@ -150,7 +144,7 @@ class _DetailPageState extends State<DetailPage> {
                         'Wooden Armchairs',
                         style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
                       ),
-                  const     SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Text(
                           'The Stoic approach is just one of many ideas for how to handle conflict, but there’s one element of their philosophy that feels particularly applicable in these insult-happy times. The Stoics weren’t pushovers — they just knew that not all insults were created equal. And most importantly, they knew how to decide which ones to ignore and which to take to heart.',
                           style: TextStyle(
@@ -167,7 +161,7 @@ class _DetailPageState extends State<DetailPage> {
                     gradient: LinearGradient(
                       colors: [Colors.transparent, Colors.white54],
                       begin: Alignment.center,
-                      end: const  Alignment(0, 3),
+                      end: const Alignment(0, 3),
                     ),
                   ),
                 ),
@@ -175,7 +169,7 @@ class _DetailPageState extends State<DetailPage> {
                   right: 0,
                   bottom: 0,
                   child: ClipRRect(
-                    borderRadius:const  BorderRadius.only(topLeft: Radius.circular(30)),
+                    borderRadius: const BorderRadius.only(topLeft: Radius.circular(30)),
                     child: SizedBox(
                       width: 150,
                       height: 60,
@@ -184,7 +178,7 @@ class _DetailPageState extends State<DetailPage> {
                         children: <Widget>[
                           Expanded(
                             child: Container(
-                              color:const  Color(0xFFfa7b58),
+                              color: const Color(0xFFfa7b58),
                               child: Icon(
                                 Icons.favorite_border,
                                 color: Colors.white,
@@ -193,7 +187,8 @@ class _DetailPageState extends State<DetailPage> {
                           ),
                           Expanded(
                             child: Container(
-                                color:const  Color(0xFF2a2d3f), child: Icon(Icons.shopping_basket, color: Colors.white)),
+                                color: const Color(0xFF2a2d3f),
+                                child: Icon(Icons.shopping_basket, color: Colors.white)),
                           ),
                         ],
                       ),

@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 
 import 'detail_screen.dart';
@@ -65,7 +59,7 @@ class CharacterWidget extends StatelessWidget {
                 ),
               ),
               Align(
-                alignment:const  Alignment(0, -1),
+                alignment: const Alignment(0, -1),
                 child: Hero(
                   tag: 'image-${character.name}',
                   child: Image.asset(
@@ -104,7 +98,7 @@ class CurvedClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     final path = Path();
-    const  offset = 40.0;
+    const offset = 40.0;
 
     path.moveTo(0, size.height * 0.4);
     path.lineTo(0, size.height - offset);

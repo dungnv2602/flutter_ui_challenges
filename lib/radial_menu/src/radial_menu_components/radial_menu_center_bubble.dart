@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 part of radial_menu;
 
 class RadialMenuCenterBubble extends StatelessWidget {
@@ -90,9 +84,7 @@ class RadialMenuCenterBubble extends StatelessWidget {
             icon = expandedCenterBubbleIcon;
             bubbleColor = expandedCenterBubbleColor;
             scale = 1.0;
-            rotation = (pi / 2) *
-                const Interval(0, 0.5, curve: Curves.easeOut)
-                    .transform(menuController.progress);
+            rotation = (pi / 2) * const Interval(0, 0.5, curve: Curves.easeOut).transform(menuController.progress);
             break;
           case RadialMenuState.expanded:
             icon = expandedCenterBubbleIcon;
@@ -106,8 +98,7 @@ class RadialMenuCenterBubble extends StatelessWidget {
             scale = lerpDouble(
               1.0,
               0.0,
-              const Interval(0.0, 0.9, curve: Curves.easeOut)
-                  .transform(menuController.progress),
+              const Interval(0.0, 0.9, curve: Curves.easeOut).transform(menuController.progress),
             );
             break;
           case RadialMenuState.dissipating:
@@ -118,8 +109,7 @@ class RadialMenuCenterBubble extends StatelessWidget {
               1.0,
               Curves.elasticOut.transform(menuController.progress),
             );
-            if (0.0 < menuController.progress &&
-                menuController.progress < 0.5) {
+            if (0.0 < menuController.progress && menuController.progress < 0.5) {
               rotation = lerpDouble(
                 0.0,
                 pi / 4,

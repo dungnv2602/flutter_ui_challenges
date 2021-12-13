@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -103,8 +97,7 @@ class _CardScrollWidget extends StatelessWidget {
 //          final currentPage  = calculateCurrentPage(controller);
           final currentPage = controller.hasClients
               ? controller.page
-              : controller
-                  .initialPage; // check if controller is attached or not yet
+              : controller.initialPage; // check if controller is attached or not yet
           return LayoutBuilder(
             builder: (context, constraints) {
               final width = constraints.maxWidth;
@@ -127,28 +120,20 @@ class _CardScrollWidget extends StatelessWidget {
                 final deltaFromCurrentPage = (index - currentPage).toDouble();
 
                 //this early return prevents us from adding invisible cards to the hierarchy
-                if (deltaFromCurrentPage > 1 || deltaFromCurrentPage < -4)
-                  continue;
+                if (deltaFromCurrentPage > 1 || deltaFromCurrentPage < -4) continue;
 
                 final isOnRight = deltaFromCurrentPage > 0;
 
-                final opacity =
-                    isOpaque ? _calculateOpacity(deltaFromCurrentPage) : 1.0;
+                final opacity = isOpaque ? _calculateOpacity(deltaFromCurrentPage) : 1.0;
 
                 final start = padding +
-                    max(
-                        primaryCardLeft -
-                            hiddenCardHorizontalInset *
-                                -deltaFromCurrentPage *
-                                (isOnRight ? 15 : 1),
+                    max(primaryCardLeft - hiddenCardHorizontalInset * -deltaFromCurrentPage * (isOnRight ? 15 : 1),
                         0.0);
 
                 // left card should become smaller
-                final top = padding +
-                    hiddenCardVerticalInset * max(-deltaFromCurrentPage, 0.0);
+                final top = padding + hiddenCardVerticalInset * max(-deltaFromCurrentPage, 0.0);
                 // right card shouldn't become bigger
-                final bottom = padding +
-                    hiddenCardVerticalInset * max(-deltaFromCurrentPage, 0.0);
+                final bottom = padding + hiddenCardVerticalInset * max(-deltaFromCurrentPage, 0.0);
 
                 final card = Positioned.directional(
                   key: Key('Positioned.directional-$index'),
@@ -159,9 +144,7 @@ class _CardScrollWidget extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: borderRadius,
                     child: Container(
-                      decoration: deltaFromCurrentPage < 0
-                          ? BoxDecoration(color: Colors.white)
-                          : const BoxDecoration(),
+                      decoration: deltaFromCurrentPage < 0 ? BoxDecoration(color: Colors.white) : const BoxDecoration(),
                       child: Opacity(
                         opacity: opacity,
                         child: AspectRatio(
@@ -193,8 +176,7 @@ num _calculateOpacity(num deltaFromCurrentPage) {
     opacity = (1 + 0.33 * deltaFromCurrentPage).clamp(0.0, 1.0);
   } else if (deltaFromCurrentPage < 1) {
     //page is the current page, possibly moving to the right
-    opacity = (1 - 2 * (deltaFromCurrentPage - deltaFromCurrentPage.floor()))
-        .clamp(0.0, 1.0);
+    opacity = (1 - 2 * (deltaFromCurrentPage - deltaFromCurrentPage.floor())).clamp(0.0, 1.0);
   } else {
     //page is way off the right side, so should be invisible.
     opacity = 0.0;

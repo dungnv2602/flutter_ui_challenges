@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 /// Implementation originated by: https://github.com/devefy/Flutter-Furniture-App-UI
 /// With my own workarounds and improvements
 /// Source: https://dribbble.com/shots/6091625-Furniture-mobile-app
@@ -38,12 +32,12 @@ class _HomePageState extends State<HomePage> {
       child: Container(
         width: width * 0.8,
         height: height / 2,
-        decoration:const  BoxDecoration(
-          gradient:  LinearGradient(
-            colors:  [Colors.white, Color(0xFFf2f3f8)],
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.white, Color(0xFFf2f3f8)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            stops:  [0.5, 1.0],
+            stops: [0.5, 1.0],
           ),
         ),
       ),
@@ -71,7 +65,7 @@ class _HomePageState extends State<HomePage> {
       left: 30,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const  <Widget>[
+        children: const <Widget>[
           Text('Wooden Armchair', style: TextStyle(fontSize: 28.0, fontFamily: 'Montserrat-Bold')),
           Text('Lorem Ipsum', style: TextStyle(fontSize: 16.0, fontFamily: 'Montserrat-Medium')),
         ],
@@ -84,7 +78,7 @@ class _HomePageState extends State<HomePage> {
         child: ListView.builder(
             itemCount: images.length,
             scrollDirection: Axis.horizontal,
-            physics:const  BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.only(left: 35, bottom: 60),
@@ -97,11 +91,11 @@ class _HomePageState extends State<HomePage> {
                         padding: const EdgeInsets.only(top: 45),
                         child: Container(
                           decoration: BoxDecoration(
-                              color: index % 2 == 0 ? Colors.white :const  Color(0xFF2a2d3f),
+                              color: index % 2 == 0 ? Colors.white : const Color(0xFF2a2d3f),
                               borderRadius: BorderRadius.circular(12),
                               boxShadow: [
                                 BoxShadow(
-                                  offset:const  Offset(0, 10),
+                                  offset: const Offset(0, 10),
                                   blurRadius: 10,
                                   color: Colors.black12,
                                 ),
@@ -116,11 +110,11 @@ class _HomePageState extends State<HomePage> {
                             width: 172.5,
                             height: 199.0,
                           ),
-                         const  SizedBox(
+                          const SizedBox(
                             height: 12.0,
                           ),
                           Padding(
-                            padding:const  EdgeInsets.all(12.0),
+                            padding: const EdgeInsets.all(12.0),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
@@ -128,23 +122,23 @@ class _HomePageState extends State<HomePage> {
                                     style: TextStyle(
                                         fontSize: 16.0,
                                         fontFamily: 'Montserrat-Bold',
-                                        color: (index % 2 == 0) ?const  Color(0xFF2a2d3f) : Colors.white)),
-                           const      SizedBox(
+                                        color: (index % 2 == 0) ? const Color(0xFF2a2d3f) : Colors.white)),
+                                const SizedBox(
                                   height: 8.0,
                                 ),
                                 Text('NEW SELL',
                                     style: TextStyle(
                                         fontSize: 12.0,
                                         fontFamily: 'Montserrat-Medium',
-                                        color: (index % 2 == 0) ?const  Color(0xFF2a2d3f) : Colors.white)),
-                             const    SizedBox(
+                                        color: (index % 2 == 0) ? const Color(0xFF2a2d3f) : Colors.white)),
+                                const SizedBox(
                                   height: 50.0,
                                 ),
                                 Text(prices[index] + ' \$',
                                     style: TextStyle(
                                         fontSize: 30.0,
                                         fontFamily: 'Montserrat-Bold',
-                                        color: (index % 2 == 0) ?const  Color(0xFF2a2d3f) : Colors.white))
+                                        color: (index % 2 == 0) ? const Color(0xFF2a2d3f) : Colors.white))
                               ],
                             ),
                           )
@@ -158,7 +152,7 @@ class _HomePageState extends State<HomePage> {
       ),
     );
     return Scaffold(
-      backgroundColor:const  Color(0xFFf2f3f8),
+      backgroundColor: const Color(0xFFf2f3f8),
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
@@ -185,12 +179,12 @@ class _HomePageState extends State<HomePage> {
         width: 65,
         height: 65,
         decoration: BoxDecoration(
-          color:const  Color(0xFFfa7b58),
+          color: const Color(0xFFfa7b58),
           shape: BoxShape.circle,
           boxShadow: [
             BoxShadow(
-              color:const  Color(0xFFf78a6c).withOpacity(0.6),
-              offset:const  Offset(0, 10),
+              color: const Color(0xFFf78a6c).withOpacity(0.6),
+              offset: const Offset(0, 10),
               blurRadius: 10,
             ),
           ],
@@ -200,7 +194,7 @@ class _HomePageState extends State<HomePage> {
             /// Navigate to DetailPage
             Navigator.of(context).push(MaterialPageRoute(builder: (context) => DetailPage()));
           },
-          shape:const  CircleBorder(),
+          shape: const CircleBorder(),
           child: Icon(
             Icons.add,
             size: 35,

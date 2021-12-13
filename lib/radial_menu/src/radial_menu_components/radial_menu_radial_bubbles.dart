@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 part of radial_menu;
 
 class RadialMenuRadialBubbles extends StatelessWidget {
@@ -73,13 +67,9 @@ class RadialMenuRadialBubbles extends StatelessWidget {
               double scale = 1;
 
               if (menuController.state == RadialMenuState.expanding) {
-                bubbleRadius = radius *
-                    Curves.elasticOut.transform(menuController.progress);
+                bubbleRadius = radius * Curves.elasticOut.transform(menuController.progress);
                 scale = lerpDouble(
-                    0.3,
-                    1.0,
-                    const Interval(0.0, 0.3, curve: Curves.easeOut)
-                        .transform(menuController.progress));
+                    0.3, 1.0, const Interval(0.0, 0.3, curve: Curves.easeOut).transform(menuController.progress));
               } else if (menuController.state == RadialMenuState.collapsing) {
                 bubbleRadius = radius * (1.0 - menuController.progress);
                 scale = lerpDouble(0.3, 1.0, 1.0 - menuController.progress);

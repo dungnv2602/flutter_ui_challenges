@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
 /// Implementation originated by: https://github.com/fdoyle/flutter-trip-demo
 /// With my own workarounds and improvements
 /// design: https://dribbble.com/shots/2938101-Flight-App-Campaign-Screen
@@ -83,11 +78,11 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
-       const    _Background(),
+          const _Background(),
           SafeArea(
             child: Column(
               children: <Widget>[
-           const      SizedBox(height: 16),
+                const SizedBox(height: 16),
                 _TopTitle(),
                 Expanded(
                   child: Stack(
@@ -95,7 +90,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                       PageView.builder(
                         pageSnapping: false,
                         reverse: true,
-                        physics:const  NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         controller: _secondaryController,
                         itemCount: flights.length,
                         itemBuilder: (_, index) {
@@ -107,7 +102,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                       ),
                       PageView.builder(
                         pageSnapping: true,
-                        physics:const  BouncingScrollPhysics(),
+                        physics: const BouncingScrollPhysics(),
                         controller: _primaryController,
                         itemCount: flights.length,
                         itemBuilder: (_, index) {
@@ -120,11 +115,11 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                     ],
                   ),
                 ),
-           const      SizedBox(height: 16),
+                const SizedBox(height: 16),
                 _IndexCounter(controller: _tertiaryController),
-             const    SizedBox(height: 64),
+                const SizedBox(height: 64),
                 _BottomRow(),
-            const     SizedBox(height: 16),
+                const SizedBox(height: 16),
               ],
             ),
           ),
@@ -149,7 +144,7 @@ class _IndexCounter extends StatelessWidget {
           width: 8,
           child: PageView.builder(
             pageSnapping: false,
-            physics:const  NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             scrollDirection: Axis.vertical,
             controller: controller,
             itemCount: flights.length,
@@ -161,7 +156,7 @@ class _IndexCounter extends StatelessWidget {
             },
           ),
         ),
-        Text(' / ${flights.length}', style:const  TextStyle(color: Colors.white, fontSize: 12)),
+        Text(' / ${flights.length}', style: const TextStyle(color: Colors.white, fontSize: 12)),
       ],
     );
   }
@@ -182,8 +177,8 @@ class _IndexCount extends StatelessWidget {
         return Opacity(
           opacity: tween,
           child: Text(
-            '${index+1}',
-            style:const  TextStyle(color: Colors.white, fontSize: 12),
+            '${index + 1}',
+            style: const TextStyle(color: Colors.white, fontSize: 12),
           ),
         );
       },
@@ -240,7 +235,7 @@ class _Background extends StatelessWidget {
           ],
           begin: Alignment.topRight,
           end: Alignment.centerLeft,
-          stops:const  [0.0, 1.0],
+          stops: const [0.0, 1.0],
         ),
       ),
       decoration: BoxDecoration(

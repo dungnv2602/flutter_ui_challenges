@@ -1,13 +1,6 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 /// design: https://dribbble.com/shots/2764686-Original-timer-app-UX-interaction
 /// Implementation originated by Matt Carroll/Fluttery
 /// With my own workarounds and improvements
-
 
 import 'dart:ui';
 

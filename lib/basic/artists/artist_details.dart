@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
@@ -147,9 +141,9 @@ class ArtistDetailsPage extends StatelessWidget {
         child: Opacity(
           opacity: animation.videoScrollerOpacity.value,
           child: SizedBox.fromSize(
-            size:const  Size.fromHeight(245),
+            size: const Size.fromHeight(245),
             child: ListView.builder(
-                padding:const  EdgeInsets.symmetric(horizontal: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 8),
                 itemCount: artist.videos.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {

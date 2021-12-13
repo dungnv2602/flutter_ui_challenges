@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 part of radial_menu;
 
 class RadialMenuActivationBubble extends StatelessWidget {
@@ -70,15 +64,13 @@ class RadialMenuActivationBubble extends StatelessWidget {
         // full circle case
         if (sweepAngle == 2 * pi) {
           // bubble start at its original angle => run a full circle based on direction back to its original angle
-          currentAngle =
-              initialItemAngle + sweepAngleDirection * menuController.progress;
+          currentAngle = initialItemAngle + sweepAngleDirection * menuController.progress;
           // half circle case
         } else {
           // calculate the center angle based on start & end angle
           final centerAngle = lerpDouble(startAngle, endAngle, 0.5);
           // bubble start at its original angle => run a lerp between center angle and its original angle
-          currentAngle = lerpDouble(
-              initialItemAngle, centerAngle, menuController.progress);
+          currentAngle = lerpDouble(initialItemAngle, centerAngle, menuController.progress);
         }
 
         return PolarPosition(

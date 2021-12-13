@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 // design: https://dribbble.com/shots/5551617-XD-Auto-Animation
 
 // TODO fix padding card on small devices
@@ -36,8 +30,7 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage>
-    with SingleTickerProviderStateMixin {
+class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
   AnimationController _animationController;
   PageController _pageController;
 
@@ -47,8 +40,7 @@ class _HomePageState extends State<HomePage>
   void initState() {
     super.initState();
     _pageController = PageController(viewportFraction: 0.8);
-    _animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 300));
+    _animationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 300));
 
     _isBackedNotifier.addListener(() {
       if (_isBackedNotifier.value) {
@@ -89,9 +81,7 @@ class _HomePageState extends State<HomePage>
                             _animationController.forward();
 
                             final bool result = await Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (_) => DetailsView(index: index)));
+                                context, MaterialPageRoute(builder: (_) => DetailsView(index: index)));
 
                             _isBackedNotifier.value = result;
                           },

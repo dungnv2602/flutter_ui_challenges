@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 
 BankingData bankingData = BankingData(<BankingEntry>[
@@ -21,25 +15,19 @@ class BankingData {
 
   BankingData(this.entries) {
     totalSpent = _calculateTotalSpent(entries);
-    entryPercentages =
-        _calculateEntryPercentages(entries, totalSpent);
-    sectionStartPercentages =
-        _calculateSectionStartPercentages(entryPercentages);
+    entryPercentages = _calculateEntryPercentages(entries, totalSpent);
+    sectionStartPercentages = _calculateSectionStartPercentages(entryPercentages);
   }
 
   int _calculateTotalSpent(List<BankingEntry> entries) {
-    return entries
-        .map((entry) => entry.amount)
-        .fold(0, (total, entry) => total + entry);
+    return entries.map((entry) => entry.amount).fold(0, (total, entry) => total + entry);
   }
 
-  List<double> _calculateEntryPercentages(
-      List<BankingEntry> entries, int totalSpent) {
+  List<double> _calculateEntryPercentages(List<BankingEntry> entries, int totalSpent) {
     return entries.map((entry) => entry.amount / totalSpent).toList();
   }
 
-  List<double> _calculateSectionStartPercentages(
-      List<double> entriesPercentages) {
+  List<double> _calculateSectionStartPercentages(List<double> entriesPercentages) {
     double runningTotal = 0;
     final List<double> offsets = [];
     for (double p in entriesPercentages) {

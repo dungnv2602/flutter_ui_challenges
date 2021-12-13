@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -95,8 +89,7 @@ class _SliderClipper extends CustomClipper<Path> {
     final height = bottom - top;
 
     final basePercentFromBottom = 1 - sliderController.springingPercent;
-    final crestSpringPercentFromBottom =
-        1 - sliderController.crestSpringingPercent;
+    final crestSpringPercentFromBottom = 1 - sliderController.crestSpringingPercent;
 
     final baseY = top + (basePercentFromBottom * height);
     final leftX = -0.85 * size.width;
@@ -225,8 +218,7 @@ class _SliderClipper extends CustomClipper<Path> {
 
     const baseControlPointWidth = 150;
     final thickeningFactor = excessDrag * height * 0.05;
-    final controlPointWidth =
-        (200 * thickeningFactor).abs() + baseControlPointWidth;
+    final controlPointWidth = (200 * thickeningFactor).abs() + baseControlPointWidth;
 
     ///clip rect
     final rect = Path()

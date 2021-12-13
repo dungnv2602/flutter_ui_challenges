@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 /// Implementation originated by: https://proandroiddev.com/flutter-animation-creating-mediums-clap-animation-in-flutter-3168f047421e
 /// With my own workarounds and improvements
 /// Source: https://dribbble.com/shots/4294768-Medium-Claps-Made-in-Flinto
@@ -19,8 +13,7 @@ class HomePage extends StatefulWidget {
 
 enum ScoreWidgetStatus { HIDDEN, BECOMING_VISIBLE, VISIBLE, BECOMING_INVISIBLE }
 
-class _HomePageState extends State<HomePage>
-    with TickerProviderStateMixin<HomePage> {
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin<HomePage> {
   Timer holdTimer, scoreOutTimer;
   int counter = 0;
   final animationDuration = const Duration(milliseconds: 500);
@@ -40,44 +33,42 @@ class _HomePageState extends State<HomePage>
     super.initState();
 
     /// SCORE IN ANIMATION
-    scoreInController =
-        AnimationController(duration: animationDuration, vsync: this)
-          ..addStatusListener((status) {
-            if (status == AnimationStatus.completed) {
-              scoreStatus = ScoreWidgetStatus.VISIBLE;
-            }
-          })
-          ..addStatusListener((status) {
-            print('IN ANIMATION STATUS - $status');
-            print('SCORE STATUS - $scoreStatus');
-          })
-          ..addListener(() {
-            setState(() {});
-          });
-    scoreInPosition = Tween<double>(begin: 0, end: 100).animate(
-        CurvedAnimation(parent: scoreInController, curve: Curves.easeOut));
-    scoreInOpacity = Tween<double>(begin: 0, end: 1).animate(
-        CurvedAnimation(parent: scoreInController, curve: Curves.easeOut));
+    scoreInController = AnimationController(duration: animationDuration, vsync: this)
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          scoreStatus = ScoreWidgetStatus.VISIBLE;
+        }
+      })
+      ..addStatusListener((status) {
+        print('IN ANIMATION STATUS - $status');
+        print('SCORE STATUS - $scoreStatus');
+      })
+      ..addListener(() {
+        setState(() {});
+      });
+    scoreInPosition =
+        Tween<double>(begin: 0, end: 100).animate(CurvedAnimation(parent: scoreInController, curve: Curves.easeOut));
+    scoreInOpacity =
+        Tween<double>(begin: 0, end: 1).animate(CurvedAnimation(parent: scoreInController, curve: Curves.easeOut));
 
     /// SCORE OUT ANIMATION
-    scoreOutController =
-        AnimationController(duration: animationDuration, vsync: this)
-          ..addStatusListener((status) {
-            if (status == AnimationStatus.completed) {
-              scoreStatus = ScoreWidgetStatus.HIDDEN;
-            }
-          })
-          ..addStatusListener((status) {
-            print('OUT ANIMATION STATUS - $status');
-            print('SCORE STATUS - $scoreStatus');
-          })
-          ..addListener(() {
-            setState(() {});
-          });
-    scoreOutPosition = Tween<double>(begin: 100, end: 200).animate(
-        CurvedAnimation(parent: scoreOutController, curve: Curves.easeOut));
-    scoreOutOpacity = Tween<double>(begin: 1, end: 0).animate(
-        CurvedAnimation(parent: scoreInController, curve: Curves.easeOut));
+    scoreOutController = AnimationController(duration: animationDuration, vsync: this)
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          scoreStatus = ScoreWidgetStatus.HIDDEN;
+        }
+      })
+      ..addStatusListener((status) {
+        print('OUT ANIMATION STATUS - $status');
+        print('SCORE STATUS - $scoreStatus');
+      })
+      ..addListener(() {
+        setState(() {});
+      });
+    scoreOutPosition =
+        Tween<double>(begin: 100, end: 200).animate(CurvedAnimation(parent: scoreOutController, curve: Curves.easeOut));
+    scoreOutOpacity =
+        Tween<double>(begin: 1, end: 0).animate(CurvedAnimation(parent: scoreInController, curve: Curves.easeOut));
   }
 
   @override
@@ -170,10 +161,7 @@ class _HomePageState extends State<HomePage>
           child: Center(
             child: Text(
               '+ ${counter.toString()}',
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15),
+              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15),
             ),
           ),
         ),

@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2020. Joe Ng - dungnv2602. All rights reserved.
- * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
- */
-
 import 'package:flutter/material.dart';
 
 import 'models.dart';
@@ -37,9 +31,9 @@ class MovieDetailHeader extends StatelessWidget {
           movie.title,
           style: textTheme.title,
         ),
-    const     SizedBox(height: 8.0),
+        const SizedBox(height: 8.0),
         RatingInfo(movie: movie),
-     const    SizedBox(height: 12.0),
+        const SizedBox(height: 12.0),
         Row(children: _buildCategoryChips(textTheme)),
       ],
     );
@@ -62,7 +56,7 @@ class MovieDetailHeader extends StatelessWidget {
                 imageUrl: movie.posterUrl,
                 height: 180.0,
               ),
-         const      SizedBox(width: 16.0),
+              const SizedBox(width: 16.0),
               Expanded(child: movieInfo),
             ],
           ),
@@ -155,7 +149,7 @@ class RatingInfo extends StatelessWidget {
             color: theme.accentColor,
           ),
         ),
-   const      SizedBox(height: 4.0),
+        const SizedBox(height: 4.0),
         Text(
           'Ratings',
           style: ratingCaptionStyle,
@@ -168,7 +162,7 @@ class RatingInfo extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         _buildRatingBar(theme),
-      const   SizedBox(height: 4.0),
+        const SizedBox(height: 4.0),
         Text(
           'Rate it',
           style: ratingCaptionStyle,
@@ -180,7 +174,7 @@ class RatingInfo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.end,
       children: <Widget>[
         numericRating,
-      const   SizedBox(width: 24.0),
+        const SizedBox(width: 24.0),
         starRating,
       ],
     );
